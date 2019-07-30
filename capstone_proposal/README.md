@@ -8,7 +8,7 @@ July 28th, 2019
 
 ### Capstone Proposal: 
 
-## Identifying Surfer's Experience Group Based on Performed Manoeuvres 
+## Identifying Surfer's Experience Based on Performed Manoeuvres 
 
 ____
 
