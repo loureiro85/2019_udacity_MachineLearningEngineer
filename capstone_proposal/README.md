@@ -14,7 +14,7 @@ ____
 
 
 
-### 1. Domain Background  [100%]
+### 1. Domain Background
 
 Research about surfboard is scarce.
 A query for 'Surfboard' in [Scopus](https://www.scopus.com/results/results.uri?numberOfFields=0&src=s&clickedLink=&edit=&editSaveSearch=&origin=searchbasic&authorTab=&affiliationTab=&advancedTab=&scint=1&menu=search&tablin=&searchterm1=surfboard&field1=TITLE_ABS_KEY&dateType=Publication_Date_Type&yearFrom=Before+1960&yearTo=Present&loadDate=7&documenttype=All&accessTypes=All&resetFormLink=&st1=surfboard&st2=&sot=b&sdt=b&sl=24&s=TITLE-ABS-KEY%28surfboard%29&sid=836201fdfd01a316e29aaf87c508a17e&searchId=836201fdfd01a316e29aaf87c508a17e&txGid=e849352791f4cd3a5c7fa87e60011e9d&sort=plf-f&originationType=b&rr=) results only 235 documents. 
@@ -48,7 +48,7 @@ ________
 
 
 
-### 2. Problem Statement [100%]
+### 2. Problem Statement
 
 The problem to be solved is the lack of methods to determine what is the experience level of a surfer given a set of manoeuvres he's able to perform.
 
@@ -97,7 +97,7 @@ columns = [
 
 
 
-### 4. Solution Statement [100%]
+### 4. Solution Statement
 
 The proposed solution consists in applying a clustering technique to statistically differentiate the levels of experience in groups accordingly to the performed manoeuvres.
 As observed in *Figure 1*, the manoeuvres are a sound approach to identify the levels.
@@ -114,7 +114,7 @@ The solution is **quantifiable**, **measurable** and **replicable**: The solutio
 
 
 
-### 5. Benchmark Model [100%]
+### 5. Benchmark Model
 
 The benchmark consists of comparing three approaches, the **KNN** vs. **GMM** vs. **Known label** (`surfer_experience`).
 
