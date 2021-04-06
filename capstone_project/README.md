@@ -22,7 +22,7 @@ The right surfboard specification implies in acknowledging theses features and t
 Therefore, strong correlation between the surfer's **experience level** and the range of **manoeuvres** is expected. 
 The objective of this work is to propose a **supervised** approach to predict the surfers experience level given a set of manoeuvres.
 
-There are no publications about this correlation (experience X manoeuvres), nor a, experience prediction application based on surfing's performed manoeuvres. 
+There are no publications about this correlation (experience vs. manoeuvres), nor a, experience prediction application based on surfing's performed manoeuvres. 
 
 This problem is relevant because it could contribute to the surfboard specification process, making recommendation more assertive.
 
@@ -309,27 +309,29 @@ Or even, a simpler, 3 cluster division:
 **Benchmark model**
 
 ```
-Mean accuracy of the Multinomial Naive Bayes model: 0.7364
+Mean accuracy of the Multinomial Naive Bayes model: 73%
 
 Probability for the BEGINEER class: 5.8%
 Probability for the INTERMEDIATE class: 35.1%
 Probability for the ADVANCED class: 59.1%
 ```
 
-**Decision Tree Prediction model**
+**Full Decision Tree Prediction model**
 
 ```
-Random state:10		Accuracy: 95%
-Random state:20		Accuracy: 97%
-Random state:30		Accuracy: 95%
-Random state:40		Accuracy: 95%
-Random state:50		Accuracy: 100%
-Random state:42		Accuracy: 93%
+Random state:10		Accuracy: 79%
+Random state:20		Accuracy: 77%
+Random state:30		Accuracy: 81%
+Random state:40		Accuracy: 70%
+Random state:42		Accuracy: 79%
+
+Mean accuracy: 77%
+Standard deviation of Accuracy: 0.039
 ```
 
 - The full decision tree is represented in (*Figure 16*);
 - The 110 rows of data was randomly split using a 0.40 factor: 40% (44) became the testing set and 60% (66) became the training set;
-- Accuracy was verified for different random_states. The smallest value (93%) which indicates the worst case scenario, for random_state = 42, is chosen as reference.
+- Accuracy was verified for different random_states. The mean value (77%) is chosen as reference.
 
 ![tree_full_00](tree_full_00.svg)
 
@@ -349,17 +351,19 @@ The lesson learned here is:
 
 ## 3.3 Refinement
 
-The refinement process of the Decision Tree model consisted of reducing the dataset to the two most important features: `07_carve` (46%) and `04_wall_riding` (16%).
+The refinement process of the Decision Tree model consisted of reducing the dataset to the two most important features: `07_carve` (44%) and `04_wall_riding` (19%).
 
 The reduced decision tree model has 4 levels of depth and 9 leaves (*Figure 17*).
 
 ```
-Random state:10		Accuracy: 86%
-Random state:20		Accuracy: 88%
+Random state:10		Accuracy: 75%
+Random state:20		Accuracy: 72%
 Random state:30		Accuracy: 88%
 Random state:40		Accuracy: 79%
-Random state:50		Accuracy: 81%
 Random state:42		Accuracy: 81%
+
+Mean accuracy: 79%
+Standard deviation of Accuracy: 0.056
 ```
 
 ![tree_reduced_01](tree_reduced_01.svg)
@@ -370,9 +374,9 @@ Random state:42		Accuracy: 81%
 
 #### Interpreting the reduced model
 
-- The obtained accuracy with the reduced model is 81%,verified for `random_state = 42`;
-- As observed in the previous cell, its reasonable to say the reduced model has an 80% accuracy, therefore its prone to get right answers 4 out of 5 predictions.
-- Standard deviation of Accuracy: 0.036
+- The mean accuracy with the reduced model is 79%;
+- As observed in the previous cell, its reasonable to say that the model is prone to get right answers 4 out of 5 predictions.
+- Standard deviation of Accuracy: 0.056
 
 ___
 
@@ -380,31 +384,31 @@ ___
 
 ## 4.1 Model Evaluation and Validation
 
-The final model was chosen based on its supposed used: during a surfboard recommendation between a surfer and a shaper.
+The final model was chosen based on its supposed use: during a surfboard recommendation among a surfer and a shaper.
 
 It's assumed that a surfers may find tedious to answer 10 questions. Hence a reduced model is more likely of success.
 
-Two features account for around 60% of the total importance of the model (`07_carve: 44.9` and `04_wall_riding: 16.1`). Only theses two features compose the reduced and final model.
+Two features account for around 60% of the total importance of the model (`07_carve: 44%` and `04_wall_riding: 19%`). Only theses two features compose the reduced and final model.
 
-The final model has 4 levels of depth and 9 leaves (as seen in *Figure 17*), which leads an accuracy of 80%.
+The final model has 4 levels of depth and 9 leaves (as seen in *Figure 17*), which leads an accuracy of 79%.
 
 
-**The final model is reasonable and aligns with the expected solution:** The reduced model is chosen as the final model because it offers a reasonable accuracy (80%) whilst using only 20% of the inputs of the full model dataset.
+**The final model is reasonable and aligns with the expected solution:** The reduced model is chosen as the final model because it offers a reasonable accuracy (79%) whilst using only 20% of the inputs of the full model dataset.
 In practice this means only two questions (instead of ten) are needed in order to predict the surfers experience level.
 
 
 **The final model was tested with various input sets:** varied due to the verified random_states.
 
-**The model is robust:** Different random states yield small accuracy standard deviation (0.036).
+**The final model is robust:** Different random states yield small accuracy standard deviation (0.056).
 
 
 
 ## 4.2 Justification
 
-- The FULL decision tree accuracy is 26.5% above reference
-- The REDUCED decision tree accuracy is 11.1% above reference
+- The FULL decision tree accuracy is 5% above reference
+- The REDUCED decision tree accuracy is 7% above reference
 
-These results and solution are significant because they overcome the naive model (unexperienced shaper) by 47%.
+These results and solution are significant because they overcome the naive model (unexperienced shaper) 7%.
 
 The reduced decision tree could printed and used manually (without any computer). The full tree is too complex for that purpose;
 
@@ -451,7 +455,7 @@ The following sections describe the work process of this project.
 - Feature similarity was analyzed. Within a PCA analysis, the vectors which represent each feature were compared, in terms of direction and intensity. The cut-back and off-the-lip manoeuvres are pretty similar.
 - A Naive Bayes classifier for multinomial model was set as benchmark, which sets the accuracy reference at 55%.
 - A decision tree with the full dataset was implemented yielding an accuracy of 93%.
-- Two features are the most important: 07_carve (45% of importance) and 04_wall_riding (16.5%). The feature importance provided the insight to simplify the model by reducing its number of input features.
+- Two features are the most important: 07_carve (44% of importance) and 04_wall_riding (19%). The feature importance provided the insight to simplify the model by reducing its number of input features.
 - A reduced decision tree with only 2 out of 10 input features was implemented, resulting in a lighter model with 80% accuracy. This represents the refined and chosen model.
 - The model can be simplified to only two of the ten features, whilst maintaining 81% of accuracy. In practice, this means the shaper only needs to ask two instead of ten questions to the surfer to predict his experience level.
 - Figures were generated to help the understanding of the decision process of each tree. The reduced model is more intuitive, as expected.
@@ -459,7 +463,7 @@ The following sections describe the work process of this project.
 
 **Interesting aspect**
 
-The most interesting aspect of this project is that one single feature `07_carve` accounts for 45% of the models importance. This fact really surprised me. I didn't expect such a high number.
+The most interesting aspect of this project is that one single feature `07_carve` accounts for 44% of the models importance. This fact really surprised me. I didn't expect such a high number.
 
 **Difficult aspect**
 
