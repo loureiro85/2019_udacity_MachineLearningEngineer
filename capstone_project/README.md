@@ -70,7 +70,6 @@ columns = [
 
 *Figure 1 - List of features*
 
-![1569452906239](../CapstoneProposal_src/1569452906239.png)
 ![1569452906239](1569452906239.png)
 
 *Figure 2 - Extract of the dataset showing the ten input features (manoeuvres) and one target feature (experience)*
@@ -83,7 +82,7 @@ The problem to be solved is the lack of methods to determine what is the experie
 
 The problem has already been quantified during my PhD thesis. *Figure 3* describes the frequency of execution of each manoeuvres by all the surfers consulted. Note that a lot of surfers are able to paddle (bottom), but only few are able to perform aerial manoeuvres (top). 
 
-![1564187226202](../CapstoneProposal_src/1564187226202.png)
+![1564187226202](1564187226202.png)
 *Figure 3 - Surfer evolution: the horizontal axis represents the sum of the answers for each manoeurvre.*
 
 
