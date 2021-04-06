@@ -71,6 +71,7 @@ columns = [
 *Figure 1 - List of features*
 
 ![1569452906239](../CapstoneProposal_src/1569452906239.png)
+![1569452906239](1569452906239.png)
 
 *Figure 2 - Extract of the dataset showing the ten input features (manoeuvres) and one target feature (experience)*
 
