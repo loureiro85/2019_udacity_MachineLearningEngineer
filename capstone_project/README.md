@@ -1,3 +1,5 @@
+![Read with surfing_notebook.ipynb](surfing_notebook.ipynb)
+
 # Identifying Surfer's Experience Group Based on Performed Manoeuvres 
 
 Guilherme Branco Loureiro		-		Florianópolis - SC - Brazil		-		September 29th, 2019
