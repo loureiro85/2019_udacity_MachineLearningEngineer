@@ -1,4 +1,4 @@
-![Read with surfing_notebook.ipynb](surfing_notebook.ipynb)
+[Read with surfing_notebook.ipynb](surfing_notebook.ipynb)
 
 # Identifying Surfer's Experience Group Based on Performed Manoeuvres 
 
